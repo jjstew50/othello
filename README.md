@@ -1,5 +1,11 @@
 # Othello Game
 
+To start playing run the following in the command line:
+`node othello.js`
+
+To exit an existing game:
+`ctrl+x`
+
 Othello, also known as Reversi, is a game between two players, denoted by black and white.
  
 Play happens on an 8x8 grid. Game pieces are discs with a black side and a
