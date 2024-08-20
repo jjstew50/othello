@@ -1,3 +1,5 @@
+const { getCoordinates } = require('./ai.js');
+
 const readline = require('node:readline');
 
 class Coordinate {
@@ -98,11 +100,31 @@ class Othello {
     board.positions[4][4] = Color.WHITE;
 
     let turn = Color.BLACK;
+    const aiGame = await new Promise(res => rl.question(`Do you want to play against an AI (y/n): `, res));
+    var aiColor;
+    if(aiGame == "y" || aiGame == "yes"){
+      const color = await new Promise(res => rl.question(`Enter what color would you like to be (b/w): `, res));  
+      console.log("COLOR: ", color)
+      console.log(color.toLocaleLowerCase())
+      console.log(Color.BLACK.abbreviation().toLocaleLowerCase())
+      aiColor = color.toLocaleLowerCase() == Color.BLACK.abbreviation().toLocaleLowerCase() ? Color.WHITE : Color.BLACK 
+      console.log("AI COLOR: ", aiColor)
+    } 
 
     while (true) {
       console.log(board.toString());
       try {
-        const input = await new Promise(res => rl.question(`Enter move for ${turn}: `, res));
+        var input;
+
+        if (aiColor == turn){
+          //TODO: pipe in the needed data and prompt for the AI to make a move
+          console.log("GETTING AI INPUT")
+          input = await getCoordinates(board, turn); 
+          console.log("AI INPUT: ", input)
+        } else {
+          input = await new Promise(res => rl.question(`Enter move for ${turn}: `, res));       
+        }
+        
         const move = this.parseCoordinate(input);
          
         const piecesChanged = getChangedPieces(move, board, turn)

@@ -2,13 +2,20 @@
 
 To start playing run the following in the command line:   
 ```
-node othello.js
+npm i
+npm run play
 ```
 
 To exit an existing game:   
 ```
-ctrl+x
+ctrl+c
 ```
+
+To play against an AI add your OPENAI_API_KEY to your env vars:
+```
+export OPENAI_API_KEY="your_api_key_here
+```
+The AI bot is not perfect and may take a few times to get a valid move.
 
 Othello, also known as Reversi, is a game between two players, denoted by black and white.
  

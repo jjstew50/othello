@@ -1,0 +1,14 @@
+{
+  "name": "othello",
+  "version": "1.0.0",
+  "description": "To start playing run the following in the command line:    ```npm run play```",
+  "main": "othello.js",
+  "scripts": {
+    "play": "node othello.js"
+  },
+  "author": "Jason Stewart",
+  "license": "ISC",
+  "dependencies": {
+    "openai": "^4.56.0"
+  }
+}
