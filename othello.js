@@ -104,11 +104,9 @@ class Othello {
     var aiColor;
     if(aiGame == "y" || aiGame == "yes"){
       const color = await new Promise(res => rl.question(`Enter what color would you like to be (b/w): `, res));  
-      console.log("COLOR: ", color)
-      console.log(color.toLocaleLowerCase())
-      console.log(Color.BLACK.abbreviation().toLocaleLowerCase())
+
       aiColor = color.toLocaleLowerCase() == Color.BLACK.abbreviation().toLocaleLowerCase() ? Color.WHITE : Color.BLACK 
-      console.log("AI COLOR: ", aiColor)
+
     } 
 
     while (true) {
